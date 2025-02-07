@@ -1,0 +1,342 @@
+/* RESET BÁSICO */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fonte e corpo */
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: #fff; /* texto branco pra destacar no vídeo escuro */
+  overflow-x: hidden;
+  animation: colorShift 10s infinite alternate; /* se quiser manter o degrade */
+}
+
+@keyframes colorShift {
+  0% {
+    background: linear-gradient(135deg, #e0f7fa, #b2ebf2, #80deea);
+  }
+  50% {
+    background: linear-gradient(135deg, #b2ebf2, #80deea, #4dd0e1);
+  }
+  100% {
+    background: linear-gradient(135deg, #e0f7fa, #b2ebf2, #80deea);
+  }
+}
+
+/* Partículas no background */
+#particles-js {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2; /* -2 pois o vídeo vai ficar em -1 */
+}
+
+/* Ícone flutuante do WhatsApp */
+.whatsapp-fixed {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: #fff;
+  font-size: 32px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  z-index: 999;
+  transition: transform 0.3s;
+}
+.whatsapp-fixed:hover {
+  transform: scale(1.1);
+}
+
+/* NOVA SEÇÃO: HERO-BG-VIDEO (substitui o header e a parallax antiga) */
+.hero-bg-video {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* ocupa a tela toda */
+  overflow: hidden;
+}
+
+/* Container do iframe (vídeo do YouTube) */
+.hero-bg-video .video-container {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+.hero-bg-video .video-container iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* se o navegador suportar */
+}
+
+/* Conteúdo por cima do vídeo */
+.hero-bg-video .hero-content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  padding: 0 20px;
+}
+
+/* Se quiser um overlay escuro pra facilitar a leitura */
+.hero-bg-video::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* ajusta opacidade conforme desejar */
+  z-index: 0;
+}
+
+/* Exemplo de estilo do logo no topo (opcional) */
+.header-logo {
+  max-width: 180px;
+  margin-bottom: 20px;
+}
+
+/* Título e texto dentro da hero */
+.hero-bg-video h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+.hero-bg-video p {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+/* Botão .btn-comprar (pode manter o mesmo estilo de antes) */
+.btn-comprar {
+  position: relative;
+  background: none;
+  color: #fff;
+  padding: 18px 40px;
+  text-decoration: none;
+  border: 2px solid #00796b;
+  border-radius: 30px;
+  font-size: 20px;
+  display: inline-block;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+.btn-comprar::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #00796b;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s ease;
+}
+.btn-comprar:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.btn-comprar:hover {
+  color: #e0f7fa;
+}
+
+/* Animação de texto dinâmico */
+.dynamic-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #00796b;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #00796b;
+  animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
+}
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #00796b; }
+}
+
+/* Seção Benefícios */
+.beneficios {
+  padding: 40px 20px;
+  text-align: center;
+}
+/* (resto igual: .beneficios h2, .beneficios ul, etc.) */
+.beneficios h2 {
+  margin-bottom: 30px;
+  font-size: 32px;
+}
+.beneficios ul {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.beneficios li {
+  background: #e0f2f1;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease;
+  width: 300px;
+  text-align: left;
+  position: relative;
+  perspective: 1000px;
+}
+.beneficios li:hover {
+  transform: rotateY(10deg);
+}
+
+/* Seção Servicos (onde exibimos logos) */
+.servicos {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(255, 255, 255, 0.6);
+  margin: 20px auto;
+}
+.servicos h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+.servicos p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+.servicos-icones {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.servicos-icones img {
+  width: 80px;
+  transition: transform 0.3s;
+}
+.servicos-icones img:hover {
+  transform: scale(1.2);
+}
+
+/* Seção Depoimentos */
+.depoimentos {
+  padding: 50px 20px;
+  text-align: center;
+}
+.depoimentos h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+.depoimento-container {
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  min-height: 120px;
+}
+.depoimento-container p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+.depoimento-container span {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Seção Vídeo Explicativo local */
+.video-explicativo {
+  text-align: center;
+  padding: 50px 20px;
+  background: #f0f4c3;
+}
+.video-explicativo h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+.video-container-local {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.video-container-local video {
+  width: 100%;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+}
+
+/* Seção Promoções */
+.promocoes {
+  text-align: center;
+  padding: 40px 20px;
+}
+.promocoes h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+.promocoes img {
+  max-width: 600px;
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Rodapé */
+footer {
+  background-color: #00695c;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 40px;
+  position: relative;
+}
+.footer-logo {
+  max-width: 150px;
+  margin-bottom: 10px;
+}
+footer a {
+  color: #b2ebf2;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+footer a:hover {
+  color: #e0f7fa;
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .hero-bg-video h1 {
+    font-size: 36px;
+  }
+  .hero-bg-video p {
+    font-size: 18px;
+  }
+  .header-logo {
+    max-width: 120px;
+  }
+}

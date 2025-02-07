@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IPTV MultiDigital - A Melhor Programação</title>
+  
+  <!-- Fonte Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Ícones do Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+
+  <!-- particles.js -->
+  <script src="https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.min.js"></script>
+
+  <style>
+    /* RESET BÁSICO */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* PARALLAX STAR BACKGROUND */
+    #parallax-stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+      z-index: -4;
+      background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    }
+    #stars, #stars2, #stars3 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: transparent;
+      animation: animStar 50s linear infinite;
+    }
+    #stars {
+      width: 1px;
+      height: 1px;
+      box-shadow: 50px 100px #FFF, 200px 150px #FFF, 300px 250px #FFF, 400px 350px #FFF, 600px 450px #FFF, 700px 600px #FFF;
+    }
+    #stars2 {
+      width: 2px;
+      height: 2px;
+      box-shadow: 100px 200px #FFF, 300px 400px #FFF, 500px 600px #FFF, 800px 700px #FFF, 900px 850px #FFF;
+      animation-duration: 100s;
+    }
+    #stars3 {
+      width: 3px;
+      height: 3px;
+      box-shadow: 150px 300px #FFF, 400px 500px #FFF, 650px 800px #FFF, 850px 900px #FFF;
+      animation-duration: 150s;
+    }
+    @keyframes animStar {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-2000px); }
+    }
+
+    /* Estilo para quando as animações estão desativadas */
+    .no-animations * {
+      animation: none !important;
+      transition: none !important;
+    }
+    .no-animations .hero-bg-video .video-container video,
+    .no-animations .animated-svg-bg,
+    .no-animations #particles-js,
+    .no-animations #parallax-stars {
+      display: none;
+    }
+
+    /* Fonte e corpo */
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: #fff;
+      overflow-x: hidden;
+      background: linear-gradient(135deg, #6a3093, #a044ff);
+      background-size: 200% 200%;
+      animation: colorShift 30s linear infinite;
+      position: relative;
+    }
+    @keyframes colorShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Partículas (opcional) */
+    #particles-js {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -3;
+    }
+
+    /* Background SVG animado (se desejar manter) */
+    .animated-svg-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -2;
+      opacity: 0.5;
+    }
+
+    /* HEADER FIXO */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      z-index: 999;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid #fff;
+      margin-right: 10px;
+    }
+    .logo h1 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    nav ul li {
+      margin-left: 20px;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #ffd7fa;
+      border-bottom: 2px solid #ffd7fa;
+    }
+    .top-offset {
+      margin-top: 80px;
+    }
+
+    /* Toggle Slider para Animações – renomeado para não conflitar com o carrossel */
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 26px;
+      margin-left: 20px;
+    }
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #c056e0;
+      transition: background-color 0.4s;
+      border-radius: 34px;
+    }
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 22px;
+      width: 22px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      transition: transform 0.4s;
+      border-radius: 50%;
+    }
+    input:checked + .toggle-slider {
+      background-color: #a044ff;
+    }
+    input:checked + .toggle-slider:before {
+      transform: translateX(24px);
+    }
+
+    /* BOTÕES FLUTUANTES */
+    .whatsapp-fixed {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: #fff;
+      font-size: 32px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      z-index: 999;
+      transition: transform 0.3s;
+    }
+    .whatsapp-fixed:hover {
+      transform: scale(1.1);
+    }
+    .whatsapp-support-left {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #16a2f5;
+      color: #fff;
+      font-size: 28px;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      z-index: 999;
+      transition: transform 0.3s;
+    }
+    .whatsapp-support-left:hover {
+      transform: scale(1.1);
+    }
+
+    /* HERO: VÍDEO DE FUNDO LOCAL */
+    .hero-bg-video {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .hero-bg-video .video-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .hero-bg-video .video-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-bg-video::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.35);
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: center;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+      animation: fadeUp 1.5s ease;
+    }
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(50%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(-50%);
+      }
+    }
+    .hero-content h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    .hero-content p {
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+    .btn-comprar {
+      position: relative;
+      background: none;
+      color: #fff;
+      padding: 18px 40px;
+      text-decoration: none;
+      border: 2px solid #c056e0;
+      border-radius: 30px;
+      font-size: 20px;
+      display: inline-block;
+      overflow: hidden;
+      transition: color 0.3s ease;
+    }
+    .btn-comprar::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #c056e0;
+      z-index: -1;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.5s ease;
+    }
+    .btn-comprar:hover::before {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    .btn-comprar:hover {
+      color: #fff0ff;
+    }
+
+    /* Texto dinâmico no hero */
+    .dynamic-text {
+      font-size: 24px;
+      font-weight: bold;
+      color: #c056e0;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #c056e0;
+      animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
+      margin-bottom: 30px;
+      display: inline-block;
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: #c056e0; }
+    }
+
+    /* BENEFÍCIOS */
+    .beneficios {
+      padding: 60px 20px;
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .beneficios h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+    .beneficios ul {
+      list-style-type: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .beneficios li {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 20px 30px;
+      border-radius: 10px;
+      transition: transform 0.5s ease;
+      width: 300px;
+      text-align: left;
+      position: relative;
+      perspective: 1000px;
+    }
+    .beneficios li:hover {
+      transform: rotateY(6deg);
+    }
+
+    /* SERVIÇOS (LOGOS) -> CARROSSEL INFINITO */
+    .servicos {
+      text-align: center;
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .servicos h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    .servicos p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    /* Carrossel de Logos – usamos a classe .carousel */
+    .carousel {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .slide-track {
+      display: flex;
+      animation: scroll 30s linear infinite;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .slide {
+      width: 120px;
+      margin-right: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .slide img {
+      width: 100%;
+      max-width: 120px;
+      transition: transform 0.3s;
+    }
+    .slide img:hover {
+      transform: scale(1.2);
+    }
+    .slide-track:hover {
+      animation-play-state: paused;
+    }
+
+    /* DEPOIMENTOS */
+    .depoimentos {
+      padding: 60px 20px;
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .depoimentos h2 {
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+    .depoimento-container {
+      width: 80%;
+      max-width: 600px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 30px;
+      border-radius: 10px;
+      position: relative;
+      min-height: 120px;
+    }
+    .depoimento-container p {
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    .depoimento-container span {
+      font-size: 16px;
+      color: #ddd;
+    }
+
+    /* VÍDEO LOCAL (SECUNDÁRIO) */
+    .video-explicativo {
+      text-align: center;
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .video-explicativo h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    .video-container-local {
+      width: 80%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .video-container-local video {
+      width: 100%;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+    }
+
+    /* PROMOÇÕES / NOSSOS PLANOS */
+    .promocoes {
+      text-align: center;
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    /* Cabeçalho para os títulos das colunas (apenas desktop) */
+    .columns-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 30px;
+    }
+    .columns-header h2 {
+      font-size: 32px;
+      color: #fff;
+      margin: 0;
+      width: 50%;
+      text-align: center;
+    }
+    /* Para mobile, vamos esconder o .columns-header e usar cabeçalhos dentro de cada coluna */
+    .mobile-header {
+      display: none;
+    }
+    /* Container com as duas colunas */
+    .promocoes-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    /* Coluna da imagem */
+    .promo-column {
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .promo-image {
+      width: 100%;
+      text-align: center;
+    }
+    .promo-image img {
+      max-width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+    /* Coluna dos pacotes */
+    .plans-column {
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .promo-plans {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+    }
+    .promo-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      animation: subtleGlow 3s ease-in-out infinite alternate;
+    }
+    @keyframes subtleGlow {
+      0% { box-shadow: 0 0 4px rgba(255,255,255,0.2); }
+      100% { box-shadow: 0 0 10px rgba(255,255,255,0.2); }
+    }
+    .promo-card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .promo-card p {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    .promo-highlight {
+      animation: rainbowBorder 2s linear infinite;
+    }
+    @keyframes rainbowBorder {
+      0% { border: 2px solid red; box-shadow: 0 0 5px red; }
+      16% { border: 2px solid orange; box-shadow: 0 0 5px orange; }
+      32% { border: 2px solid yellow; box-shadow: 0 0 5px yellow; }
+      48% { border: 2px solid green; box-shadow: 0 0 5px green; }
+      64% { border: 2px solid blue; box-shadow: 0 0 5px blue; }
+      80% { border: 2px solid indigo; box-shadow: 0 0 5px indigo; }
+      100% { border: 2px solid violet; box-shadow: 0 0 5px violet; }
+    }
+
+    /* RODAPÉ */
+    footer {
+      background-color: rgba(0,0,0,0.6);
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+      position: relative;
+    }
+    .footer-logo {
+      max-width: 90px;
+      border-radius: 10px;
+      border: 2px solid #fff;
+      margin-bottom: 10px;
+    }
+    footer a {
+      color: #ffd7fa;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    footer a:hover {
+      color: #fff;
+    }
+
+    /* SCROLL SUAVE */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* RESPONSIVIDADE */
+    @media (max-width: 768px) {
+      header { flex-direction: column; align-items: flex-start; }
+      nav ul { margin-top: 10px; }
+      .hero-content h2 { font-size: 32px; }
+      .hero-content p { font-size: 18px; }
+      .slide { width: 80px; margin-right: 20px; }
+      .slide img { max-width: 80px; }
+      .promocoes-container { flex-direction: column; }
+      .promo-image, .promo-plans { flex: 1 1 100%; }
+      .columns-header { display: none; }
+      .mobile-header { 
+        display: block; 
+        font-size: 32px; 
+        color: #fff; 
+        text-align: center; 
+        margin-bottom: 20px; 
+        width: 100%; 
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Parallax Star Background -->
+  <div id="parallax-stars">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+  </div>
+
+  <!-- Partículas (opcional) -->
+  <div id="particles-js"></div>
+  
+  <!-- Background SVG animado (se desejar manter) -->
+  <div class="animated-svg-bg">
+    <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="200" cy="200" r="100" fill="none" stroke="#ffffff" stroke-width="2">
+        <animate attributeName="r" from="80" to="120" dur="4s" repeatCount="indefinite" />
+        <animate attributeName="stroke-opacity" values="0.8;0.3;0.8" dur="4s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="600" cy="400" r="150" fill="none" stroke="#ffffff" stroke-width="2">
+        <animate attributeName="r" from="130" to="170" dur="6s" repeatCount="indefinite" />
+        <animate attributeName="stroke-opacity" values="0.3;0.8;0.3" dur="6s" repeatCount="indefinite" />
+      </circle>
+    </svg>
+  </div>
+
+  <!-- Botão WhatsApp principal -->
+  <a href="https://wa.me/5573981353836?text=Ol%C3%A1%2C%20temos%20v%C3%A1rios%20servi%C3%A7os%20para%20lhe%20atender.%0A%0AEscolha%20a%20op%C3%A7%C3%A3o%20desejada.%0A%0A%F0%9F%8C%90Quero%20Canais%20Mensais%20%0A%0ANetflix%20-%20Disney%20-%20Globo%20play%20-%20Telecine%20-%20Prime%20V%C3%ADdeo%20-%20Premiere%20-%20Star%20Plus%20-%20Paramount%20-%20HBO%20.%20Entre%20outros%0A%0AIPTV%0A%0AMensal%20-%20Pagamento%20todo%20m%C3%AAs%0A%0AAnual%20-%20Pagamento%20feito%20uma%20vez%20por%20ano.%0A%0AVital%C3%ADcio%20(%20Novidade%20)%20-%20PAGA%20APENAS%20UMA%20VEZ%C2%A0!!!" class="whatsapp-fixed" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Botão Suporte -->
+  <a href="https://wa.me/5561981336237?text=Ol%C3%A1%2C%20preciso%20de%20suporte%20IPTV." class="whatsapp-support-left" target="_blank" title="Suporte (61) 9 8133-6237">
+    <i class="fas fa-headset"></i>
+  </a>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="img_iptv/iptv_multidigital_logo.jpg" alt="Logomarca">
+      <h1>IPTV MultiDigital</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#hero">Início</a></li>
+        <li><a href="#beneficios">Benefícios</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#video-local">Vídeo Local</a></li>
+        <li><a href="#promocoes">Promoções</a></li>
+        <li><a href="#nossos-planos">Nossos Planos</a></li>
+      </ul>
+    </nav>
+    <!-- Toggle deslizante para animações -->
+    <label class="toggle-switch">
+      <input type="checkbox" id="toggleAnimations">
+      <span class="toggle-slider"></span>
+    </label>
+  </header>
+
+  <!-- HERO: VÍDEO DE FUNDO -->
+  <section class="hero-bg-video" id="hero">
+    <div class="video-container">
+      <video autoplay muted loop playsinline>
+        <source src="videos_iptv/free_bird_vid.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos HTML5.
+      </video>
+    </div>
+    <div class="hero-content">
+      <h2>Melhor Programação IPTV e Streaming</h2>
+      <p class="dynamic-text">Canais HD, Filmes e Séries por um Preço Acessível.</p>
+      <a href="https://wa.me/5573981353836?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20assinar%20IPTV." class="btn-comprar" target="_blank">
+        Comprar Agora
+      </a>
+    </div>
+  </section>
+
+  <!-- BENEFÍCIOS -->
+  <section class="beneficios top-offset" id="beneficios">
+    <h2><i class="fas fa-thumbs-up"></i> Por que escolher nosso serviço?</h2>
+    <ul>
+      <li><strong>Qualidade Excepcional:</strong> Canais HD e SD com transmissão estável.</li>
+      <li><strong>Vasta Biblioteca:</strong> Acesso ilimitado a filmes e séries populares.</li>
+      <li><strong>Compatibilidade Total:</strong> Funciona em Smart TVs, celulares, tablets e computadores.</li>
+      <li><strong>Suporte 24/7:</strong> Equipe dedicada para resolver qualquer problema.</li>
+    </ul>
+  </section>
+
+  <!-- SERVIÇOS (LOGOS) -> CARROSSEL INFINITO -->
+  <section class="servicos" id="servicos">
+    <h2><i class="fas fa-tv"></i> Nossos Conteúdos</h2>
+    <p>Aqui você encontra as principais plataformas de streaming e muito mais!</p>
+    <div class="carousel">
+      <div class="slide-track">
+        <div class="slide"><img src="img_iptv/png-transparent-nickelodeon-logo-wikipedia-logo-nickelodeon-movies-speechlanguage-pathology-nickelodeon-splat-orange-text-line-thumbnail.png" alt="Nickelodeon"></div>
+        <div class="slide"><img src="img_iptv/pngwing.com (1).png" alt="Logo (1)"></div>
+        <div class="slide"><img src="img_iptv/pngwing.com (2).png" alt="Logo (2)"></div>
+        <div class="slide"><img src="img_iptv/pngwing.com (3).png" alt="Logo (3)"></div>
+        <div class="slide"><img src="img_iptv/pngwing.com (4).png" alt="Logo (4)"></div>
+        <div class="slide"><img src="img_iptv/pngwing.com (5).png" alt="Logo (5)"></div>
+        <div class="slide"><img src="img_iptv/pngwing.com (6).png" alt="Logo (6)"></div>
+        <div class="slide"><img src="img_iptv/pngwing.com (7).png" alt="Logo (7)"></div>
+        <div class="slide"><img src="img_iptv/pngwing.com (8).png" alt="Logo (8)"></div>
+        <div class="slide"><img src="img_iptv/pngwing.com.png" alt="Logo (main)"></div>
+        <div class="slide"><img src="img_iptv/prime_video.png" alt="Prime Video"></div>
+        <div class="slide"><img src="img_iptv/ufc_logo_01.png" alt="UFC 01"></div>
+        <div class="slide"><img src="img_iptv/800px-Rede_Telecine.png" alt="Telecine"></div>
+        <div class="slide"><img src="img_iptv/1600px-UFC_Logo.svg.png" alt="UFC Logo2"></div>
+        <div class="slide"><img src="img_iptv/apple-tv-logo-0.png" alt="Apple TV Logo"></div>
+        <div class="slide"><img src="img_iptv/Disney+_logo.svg.png" alt="Disney+"></div>
+        <div class="slide"><img src="img_iptv/espn_logo.png" alt="ESPN"></div>
+        <div class="slide"><img src="img_iptv/GloboNews_logo.svg.png" alt="GloboNews"></div>
+        <div class="slide"><img src="img_iptv/globoplay-logo-BA545AE124-seeklogo.com.png" alt="Globoplay"></div>
+        <div class="slide"><img src="img_iptv/hulu-logo-svgrepo-com.svg" alt="Hulu"></div>
+        <div class="slide"><img src="img_iptv/logo-cnn-png_optimized.webp" alt="CNN"></div>
+        <div class="slide"><img src="img_iptv/Logo-Sportv-Png-1024x1024.webp" alt="SporTV"></div>
+        <div class="slide"><img src="img_iptv/paramount-plus-logo-1.png" alt="Paramount+"></div>
+        <div class="slide"><img src="img_iptv/png-transparent-fox-sports-1-television-channel-fox-sports-north-television-text-trademark.png" alt="Fox Sports"></div>
+        <div class="slide"><img src="img_iptv/png-transparent-hbo-max-logo.png" alt="HBO Max"></div>
+        <!-- Duplicados para loop infinito -->
+        <div class="slide"><img src="img_iptv/png-transparent-nickelodeon-logo-wikipedia-logo-nickelodeon-movies-speechlanguage-pathology-nickelodeon-splat-orange-text-line-thumbnail.png" alt="Nickelodeon"></div>
+        <div class="slide"><img src="img_iptv/pngwing.com (1).png" alt="Logo (1)"></div>
+        <div class="slide"><img src="img_iptv/pngwing.com (2).png" alt="Logo (2)"></div>
+        <div class="slide"><img src="img_iptv/pngwing.com (3).png" alt="Logo (3)"></div>
+        <div class="slide"><img src="img_iptv/pngwing.com (4).png" alt="Logo (4)"></div>
+        <div class="slide"><img src="img_iptv/pngwing.com (5).png" alt="Logo (5)"></div>
+        <div class="slide"><img src="img_iptv/pngwing.com (6).png" alt="Logo (6)"></div>
+        <div class="slide"><img src="img_iptv/pngwing.com (7).png" alt="Logo (7)"></div>
+        <div class="slide"><img src="img_iptv/pngwing.com (8).png" alt="Logo (8)"></div>
+        <div class="slide"><img src="img_iptv/pngwing.com.png" alt="Logo (main)"></div>
+        <div class="slide"><img src="img_iptv/prime_video.png" alt="Prime Video"></div>
+        <div class="slide"><img src="img_iptv/ufc_logo_01.png" alt="UFC 01"></div>
+        <div class="slide"><img src="img_iptv/800px-Rede-Telecine.png" alt="Telecine"></div>
+        <div class="slide"><img src="img_iptv/1600px-UFC_Logo.svg.png" alt="UFC Logo2"></div>
+        <div class="slide"><img src="img_iptv/apple-tv-logo-0.png" alt="Apple TV Logo"></div>
+        <div class="slide"><img src="img_iptv/Disney+_logo.svg.png" alt="Disney+"></div>
+        <div class="slide"><img src="img_iptv/espn_logo.png" alt="ESPN"></div>
+        <div class="slide"><img src="img_iptv/GloboNews_logo.svg.png" alt="GloboNews"></div>
+        <div class="slide"><img src="img_iptv/globoplay-logo-BA545AE124-seeklogo.com.png" alt="Globoplay"></div>
+        <div class="slide"><img src="img_iptv/hulu-logo-svgrepo-com.svg" alt="Hulu"></div>
+        <div class="slide"><img src="img_iptv/logo-cnn-png_optimized.webp" alt="CNN"></div>
+        <div class="slide"><img src="img_iptv/Logo-Sportv-Png-1024x1024.webp" alt="SporTV"></div>
+        <div class="slide"><img src="img_iptv/paramount-plus-logo-1.png" alt="Paramount+"></div>
+        <div class="slide"><img src="img_iptv/png-transparent-fox-sports-1-television-channel-fox-sports-north-television-text-trademark.png" alt="Fox Sports"></div>
+        <div class="slide"><img src="img_iptv/png-transparent-hbo-max-logo.png" alt="HBO Max"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="depoimentos" id="depoimentos">
+    <h2><i class="fas fa-users"></i> O que nossos clientes dizem</h2>
+    <div class="depoimento-container" id="depoimento-container">
+      <p id="depoimento-text">"Ótimo serviço, recomendo!"</p>
+      <span id="depoimento-author">- João Souza</span>
+    </div>
+  </section>
+
+  <!-- VÍDEO LOCAL SECUNDÁRIO -->
+  <section class="video-explicativo" id="video-local">
+    <h2><i class="fas fa-play-circle"></i> Entenda como o serviço funciona</h2>
+    <div class="video-container-local">
+      <video controls>
+        <source src="videos_iptv/video_iptv_luis.mp4" type="video/mp4">
+        Seu navegador não suporta o elemento de vídeo HTML5.
+      </video>
+    </div>
+  </section>
+
+  <!-- PROMOÇÕES / NOSSOS PLANOS -->
+  <section class="promocoes" id="promocoes">
+    <!-- Cabeçalho para desktop -->
+    <div class="columns-header">
+      <h2 class="column-title">Promoções de streaming mensal</h2>
+      <h2 class="column-title">Planos de IPTV</h2>
+    </div>
+    <!-- Para mobile, os cabeçalhos serão integrados em cada coluna -->
+    <div class="promocoes-container">
+      <!-- Coluna da imagem -->
+      <div class="promo-column">
+        <h2 class="mobile-header">Promoções de streaming mensal</h2>
+        <div class="promo-image">
+          <img src="img_iptv/tabela_promocoes_iptv_multidigital.jpg" alt="Tabela de Promoções">
+        </div>
+      </div>
+      <!-- Coluna dos pacotes -->
+      <div class="plans-column" id="nossos-planos">
+        <h2 class="mobile-header">Planos de IPTV</h2>
+        <div class="promo-plans">
+          <div class="promo-card">
+            <h3>Plano Mensal</h3>
+            <p><strong>R$ 25</strong></p>
+            <p>Acesso completo por 30 dias, perfeito para quem quer experimentar sem compromisso.</p>
+          </div>
+          <div class="promo-card">
+            <h3>Plano Anual</h3>
+            <p><strong>R$ 180</strong></p>
+            <p>Economia garantida para 12 meses. Divirta-se o ano inteiro com tranquilidade.</p>
+          </div>
+          <div class="promo-card promo-highlight">
+            <h3>Plano Vitalício</h3>
+            <p><strong>R$ 300</strong></p>
+            <p>Pagamento único e acesso para sempre! É a melhor opção custo-benefício.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <img class="footer-logo" src="img_iptv/iptv_multidigital_logo.jpg" alt="Logomarca Rodapé">
+    <p>&copy; 2023 IPTV MultiDigital. Todos os direitos reservados.</p>
+    <p>
+      <a href="https://wa.me/5573981353836" target="_blank">Entre em contato via WhatsApp</a>
+    </p>
+  </footer>
+
+  <!-- Scripts: Partículas, Toggle, Depoimentos e Highlight do Menu -->
+  <script>
+    // Partículas
+    document.addEventListener('DOMContentLoaded', function() {
+      particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/demo/particles.json', () => {
+        console.log('Partículas carregadas!');
+      });
+    });
+
+    // Toggle de animações (Slider)
+    document.getElementById('toggleAnimations').addEventListener('change', function() {
+      document.body.classList.toggle('no-animations');
+    });
+
+    // Depoimentos dinâmicos
+    const depoimentos = [
+      { text: '"Ótimo serviço para ver futebol e UFC! A imagem é top e sem travar."', author: '- João Souza' },
+      { text: '"Amo maratonar novelas e séries. O acervo é enorme e funciona lisinho!"', author: '- Maria Aparecida' },
+      { text: '"Pra mim que curto filmes de ação e corridas ao vivo, atende super bem."', author: '- Carlos Santos' },
+      { text: '"Simplesmente amei a variedade de animes e doramas. Vale muito a pena!"', author: '- Ana Beatriz' },
+    ];
+    let currentDepoIndex = 0;
+    const depoText = document.getElementById('depoimento-text');
+    const depoAuthor = document.getElementById('depoimento-author');
+    function trocarDepoimento() {
+      currentDepoIndex = (currentDepoIndex + 1) % depoimentos.length;
+      depoText.textContent = depoimentos[currentDepoIndex].text;
+      depoAuthor.textContent = depoimentos[currentDepoIndex].author;
+    }
+    setInterval(trocarDepoimento, 5000);
+
+    // Highlight do menu via Intersection Observer
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav ul li a');
+    const options = { threshold: 0.5 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          navLinks.forEach(link => link.classList.remove('active'));
+          const id = entry.target.getAttribute('id');
+          const activeLink = document.querySelector(`nav ul li a[href="#${id}"]`);
+          if(activeLink) activeLink.classList.add('active');
+        }
+      });
+    }, options);
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
