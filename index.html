@@ -130,6 +130,7 @@
       display: flex;
       align-items: center;
     }
+    /* Atualizado para nova pasta */
     .logo img {
       width: 60px;
       height: 60px;
@@ -137,6 +138,7 @@
       border-radius: 10px;
       border: 2px solid #fff;
       margin-right: 10px;
+      src: "img_iptv_tiny/iptv_multidigital_logo.jpg";
     }
     .logo h1 {
       font-size: 20px;
@@ -165,7 +167,7 @@
       margin-top: 80px;
     }
 
-    /* Toggle Slider para Animações – renomeado para não conflitar com o carrossel */
+    /* Toggle Slider para Animações */
     .toggle-switch {
       position: relative;
       display: inline-block;
@@ -251,7 +253,7 @@
       transform: scale(1.1);
     }
 
-    /* HERO: VÍDEO DE FUNDO LOCAL */
+    /* HERO: VÍDEO DE FUNDO */
     .hero-bg-video {
       position: relative;
       width: 100%;
@@ -351,7 +353,7 @@
       color: #fff0ff;
     }
 
-    /* Texto dinâmico no hero */
+    /* TEXTO DINÂMICO NO HERO */
     .dynamic-text {
       font-size: 24px;
       font-weight: bold;
@@ -405,13 +407,15 @@
       transform: rotateY(6deg);
     }
 
-    /* SERVIÇOS (LOGOS) -> CARROSSEL INFINITO */
+    /* SERVIÇOS (CARROSSEL DE LOGOS) */
     .servicos {
+      position: relative;
       text-align: center;
       padding: 60px 20px;
       max-width: 1200px;
       margin: 0 auto;
       overflow: hidden;
+      z-index: 1;
     }
     .servicos h2 {
       font-size: 32px;
@@ -421,7 +425,6 @@
       font-size: 18px;
       margin-bottom: 30px;
     }
-    /* Carrossel de Logos – usamos a classe .carousel */
     .carousel {
       width: 100%;
       display: flex;
@@ -517,7 +520,6 @@
       max-width: 1200px;
       margin: 0 auto;
     }
-    /* Cabeçalho para os títulos das colunas (apenas desktop) */
     .columns-header {
       display: flex;
       justify-content: space-between;
@@ -531,11 +533,9 @@
       width: 50%;
       text-align: center;
     }
-    /* Para mobile, vamos esconder o .columns-header e usar cabeçalhos dentro de cada coluna */
     .mobile-header {
       display: none;
     }
-    /* Container com as duas colunas */
     .promocoes-container {
       display: flex;
       flex-wrap: wrap;
@@ -543,13 +543,13 @@
       align-items: flex-start;
       justify-content: center;
     }
-    /* Coluna da imagem */
     .promo-column {
       flex: 1 1 300px;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
+    /* Atualizado para nova pasta */
     .promo-image {
       width: 100%;
       text-align: center;
@@ -559,7 +559,6 @@
       border-radius: 6px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     }
-    /* Coluna dos pacotes */
     .plans-column {
       flex: 1 1 300px;
       display: flex;
@@ -657,9 +656,8 @@
     }
   </style>
 </head>
-
 <body>
-  <!-- Parallax Star Background -->
+  <!-- PARALLAX STAR BACKGROUND -->
   <div id="parallax-stars">
     <div id="stars"></div>
     <div id="stars2"></div>
@@ -684,7 +682,7 @@
   </div>
 
   <!-- Botão WhatsApp principal -->
-  <a href="https://wa.me/5573981353836?text=Ol%C3%A1%2C%20temos%20v%C3%A1rios%20servi%C3%A7os%20para%20lhe%20atender.%0A%0AEscolha%20a%20op%C3%A7%C3%A3o%20desejada.%0A%0A%F0%9F%8C%90Quero%20Canais%20Mensais%20%0A%0ANetflix%20-%20Disney%20-%20Globo%20play%20-%20Telecine%20-%20Prime%20V%C3%ADdeo%20-%20Premiere%20-%20Star%20Plus%20-%20Paramount%20-%20HBO%20.%20Entre%20outros%0A%0AIPTV%0A%0AMensal%20-%20Pagamento%20todo%20m%C3%AAs%0A%0AAnual%20-%20Pagamento%20feito%20uma%20vez%20por%20ano.%0A%0AVital%C3%ADcio%20(%20Novidade%20)%20-%20PAGA%20APENAS%20UMA%20VEZ%C2%A0!!!" class="whatsapp-fixed" target="_blank">
+  <a href="https://wa.me/5573981353836?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20assinar%20IPTV." class="whatsapp-fixed" target="_blank">
     <i class="fab fa-whatsapp"></i>
   </a>
 
@@ -696,7 +694,8 @@
   <!-- HEADER -->
   <header>
     <div class="logo">
-      <img src="img_iptv/iptv_multidigital_logo.jpg" alt="Logomarca">
+      <!-- Atualizado para nova pasta -->
+      <img src="img_iptv_tiny/iptv_multidigital_logo.jpg" alt="Logomarca">
       <h1>IPTV MultiDigital</h1>
     </div>
     <nav>
@@ -721,7 +720,7 @@
   <section class="hero-bg-video" id="hero">
     <div class="video-container">
       <video autoplay muted loop playsinline>
-        <source src="videos_iptv/free_bird_vid.mp4" type="video/mp4">
+        <source src="videos_iptv/free_bird_vid01.mp4" type="video/mp4">
         Seu navegador não suporta vídeos HTML5.
       </video>
     </div>
@@ -745,63 +744,60 @@
     </ul>
   </section>
 
-  <!-- SERVIÇOS (LOGOS) -> CARROSSEL INFINITO -->
+  <!-- SERVIÇOS (CARROSSEL DE LOGOS) -->
   <section class="servicos" id="servicos">
     <h2><i class="fas fa-tv"></i> Nossos Conteúdos</h2>
     <p>Aqui você encontra as principais plataformas de streaming e muito mais!</p>
     <div class="carousel">
       <div class="slide-track">
-        <div class="slide"><img src="img_iptv/png-transparent-nickelodeon-logo-wikipedia-logo-nickelodeon-movies-speechlanguage-pathology-nickelodeon-splat-orange-text-line-thumbnail.png" alt="Nickelodeon"></div>
-        <div class="slide"><img src="img_iptv/pngwing.com (1).png" alt="Logo (1)"></div>
-        <div class="slide"><img src="img_iptv/pngwing.com (2).png" alt="Logo (2)"></div>
-        <div class="slide"><img src="img_iptv/pngwing.com (3).png" alt="Logo (3)"></div>
-        <div class="slide"><img src="img_iptv/pngwing.com (4).png" alt="Logo (4)"></div>
-        <div class="slide"><img src="img_iptv/pngwing.com (5).png" alt="Logo (5)"></div>
-        <div class="slide"><img src="img_iptv/pngwing.com (6).png" alt="Logo (6)"></div>
-        <div class="slide"><img src="img_iptv/pngwing.com (7).png" alt="Logo (7)"></div>
-        <div class="slide"><img src="img_iptv/pngwing.com (8).png" alt="Logo (8)"></div>
-        <div class="slide"><img src="img_iptv/pngwing.com.png" alt="Logo (main)"></div>
-        <div class="slide"><img src="img_iptv/prime_video.png" alt="Prime Video"></div>
-        <div class="slide"><img src="img_iptv/ufc_logo_01.png" alt="UFC 01"></div>
-        <div class="slide"><img src="img_iptv/800px-Rede_Telecine.png" alt="Telecine"></div>
-        <div class="slide"><img src="img_iptv/1600px-UFC_Logo.svg.png" alt="UFC Logo2"></div>
-        <div class="slide"><img src="img_iptv/apple-tv-logo-0.png" alt="Apple TV Logo"></div>
-        <div class="slide"><img src="img_iptv/Disney+_logo.svg.png" alt="Disney+"></div>
-        <div class="slide"><img src="img_iptv/espn_logo.png" alt="ESPN"></div>
-        <div class="slide"><img src="img_iptv/GloboNews_logo.svg.png" alt="GloboNews"></div>
-        <div class="slide"><img src="img_iptv/globoplay-logo-BA545AE124-seeklogo.com.png" alt="Globoplay"></div>
-        <div class="slide"><img src="img_iptv/hulu-logo-svgrepo-com.svg" alt="Hulu"></div>
-        <div class="slide"><img src="img_iptv/logo-cnn-png_optimized.webp" alt="CNN"></div>
-        <div class="slide"><img src="img_iptv/Logo-Sportv-Png-1024x1024.webp" alt="SporTV"></div>
-        <div class="slide"><img src="img_iptv/paramount-plus-logo-1.png" alt="Paramount+"></div>
-        <div class="slide"><img src="img_iptv/png-transparent-fox-sports-1-television-channel-fox-sports-north-television-text-trademark.png" alt="Fox Sports"></div>
-        <div class="slide"><img src="img_iptv/png-transparent-hbo-max-logo.png" alt="HBO Max"></div>
+        <!-- Atualizando os caminhos para a nova pasta -->
+        <div class="slide"><img src="img_iptv_tiny/png-transparent-nickelodeon-logo-wikipedia-logo-nickelodeon-movies-speechlanguage-pathology-nickelodeon-splat-orange-text-line-thumbnail.png" alt="Nickelodeon"></div>
+        <div class="slide"><img src="img_iptv_tiny/pngwing.com (1).png" alt="Logo (1)"></div>
+        <div class="slide"><img src="img_iptv_tiny/pngwing.com (2).png" alt="Logo (2)"></div>
+        <div class="slide"><img src="img_iptv_tiny/pngwing.com (3).png" alt="Logo (3)"></div>
+        <div class="slide"><img src="img_iptv_tiny/pngwing.com (4).png" alt="Logo (4)"></div>
+        <div class="slide"><img src="img_iptv_tiny/pngwing.com (5).png" alt="Logo (5)"></div>
+        <div class="slide"><img src="img_iptv_tiny/pngwing.com (6).png" alt="Logo (6)"></div>
+        <div class="slide"><img src="img_iptv_tiny/pngwing.com (7).png" alt="Logo (7)"></div>
+        <div class="slide"><img src="img_iptv_tiny/pngwing.com (8).png" alt="Logo (8)"></div>
+        <div class="slide"><img src="img_iptv_tiny/prime_video.png" alt="Prime Video"></div>
+        <div class="slide"><img src="img_iptv_tiny/800px-Rede_Telecine.png" alt="Telecine"></div>
+        <div class="slide"><img src="img_iptv_tiny/1600px-UFC_Logo.svg.png" alt="UFC Logo2"></div>
+        <div class="slide"><img src="img_iptv_tiny/apple-tv-logo-0.png" alt="Apple TV Logo"></div>
+        <div class="slide"><img src="img_iptv_tiny/Disney+_logo.svg.png" alt="Disney+"></div>
+        <div class="slide"><img src="img_iptv_tiny/espn_logo.png" alt="ESPN"></div>
+        <div class="slide"><img src="img_iptv_tiny/GloboNews_logo.svg.png" alt="GloboNews"></div>
+        <div class="slide"><img src="img_iptv_tiny/globoplay-logo-BA545AE124-seeklogo.com.png" alt="Globoplay"></div>
+        <div class="slide"><img src="img_iptv_tiny/hulu-logo-svgrepo-com.svg" alt="Hulu"></div>
+        <div class="slide"><img src="img_iptv_tiny/logo-cnn-png_optimized.webp" alt="CNN"></div>
+        <div class="slide"><img src="img_iptv_tiny/Logo-Sportv-Png-1024x1024.webp" alt="SporTV"></div>
+        <div class="slide"><img src="img_iptv_tiny/paramount-plus-logo-1.png" alt="Paramount+"></div>
+        <div class="slide"><img src="img_iptv_tiny/png-transparent-fox-sports-1-television-channel-fox-sports-north-television-text-trademark.png" alt="Fox Sports"></div>
+        <div class="slide"><img src="img_iptv_tiny/png-transparent-hbo-max-logo.png" alt="HBO Max"></div>
         <!-- Duplicados para loop infinito -->
-        <div class="slide"><img src="img_iptv/png-transparent-nickelodeon-logo-wikipedia-logo-nickelodeon-movies-speechlanguage-pathology-nickelodeon-splat-orange-text-line-thumbnail.png" alt="Nickelodeon"></div>
-        <div class="slide"><img src="img_iptv/pngwing.com (1).png" alt="Logo (1)"></div>
-        <div class="slide"><img src="img_iptv/pngwing.com (2).png" alt="Logo (2)"></div>
-        <div class="slide"><img src="img_iptv/pngwing.com (3).png" alt="Logo (3)"></div>
-        <div class="slide"><img src="img_iptv/pngwing.com (4).png" alt="Logo (4)"></div>
-        <div class="slide"><img src="img_iptv/pngwing.com (5).png" alt="Logo (5)"></div>
-        <div class="slide"><img src="img_iptv/pngwing.com (6).png" alt="Logo (6)"></div>
-        <div class="slide"><img src="img_iptv/pngwing.com (7).png" alt="Logo (7)"></div>
-        <div class="slide"><img src="img_iptv/pngwing.com (8).png" alt="Logo (8)"></div>
-        <div class="slide"><img src="img_iptv/pngwing.com.png" alt="Logo (main)"></div>
-        <div class="slide"><img src="img_iptv/prime_video.png" alt="Prime Video"></div>
-        <div class="slide"><img src="img_iptv/ufc_logo_01.png" alt="UFC 01"></div>
-        <div class="slide"><img src="img_iptv/800px-Rede-Telecine.png" alt="Telecine"></div>
-        <div class="slide"><img src="img_iptv/1600px-UFC_Logo.svg.png" alt="UFC Logo2"></div>
-        <div class="slide"><img src="img_iptv/apple-tv-logo-0.png" alt="Apple TV Logo"></div>
-        <div class="slide"><img src="img_iptv/Disney+_logo.svg.png" alt="Disney+"></div>
-        <div class="slide"><img src="img_iptv/espn_logo.png" alt="ESPN"></div>
-        <div class="slide"><img src="img_iptv/GloboNews_logo.svg.png" alt="GloboNews"></div>
-        <div class="slide"><img src="img_iptv/globoplay-logo-BA545AE124-seeklogo.com.png" alt="Globoplay"></div>
-        <div class="slide"><img src="img_iptv/hulu-logo-svgrepo-com.svg" alt="Hulu"></div>
-        <div class="slide"><img src="img_iptv/logo-cnn-png_optimized.webp" alt="CNN"></div>
-        <div class="slide"><img src="img_iptv/Logo-Sportv-Png-1024x1024.webp" alt="SporTV"></div>
-        <div class="slide"><img src="img_iptv/paramount-plus-logo-1.png" alt="Paramount+"></div>
-        <div class="slide"><img src="img_iptv/png-transparent-fox-sports-1-television-channel-fox-sports-north-television-text-trademark.png" alt="Fox Sports"></div>
-        <div class="slide"><img src="img_iptv/png-transparent-hbo-max-logo.png" alt="HBO Max"></div>
+        <div class="slide"><img src="img_iptv_tiny/png-transparent-nickelodeon-logo-wikipedia-logo-nickelodeon-movies-speechlanguage-pathology-nickelodeon-splat-orange-text-line-thumbnail.png" alt="Nickelodeon"></div>
+        <div class="slide"><img src="img_iptv_tiny/pngwing.com (1).png" alt="Logo (1)"></div>
+        <div class="slide"><img src="img_iptv_tiny/pngwing.com (2).png" alt="Logo (2)"></div>
+        <div class="slide"><img src="img_iptv_tiny/pngwing.com (3).png" alt="Logo (3)"></div>
+        <div class="slide"><img src="img_iptv_tiny/pngwing.com (4).png" alt="Logo (4)"></div>
+        <div class="slide"><img src="img_iptv_tiny/pngwing.com (5).png" alt="Logo (5)"></div>
+        <div class="slide"><img src="img_iptv_tiny/pngwing.com (6).png" alt="Logo (6)"></div>
+        <div class="slide"><img src="img_iptv_tiny/pngwing.com (7).png" alt="Logo (7)"></div>
+        <div class="slide"><img src="img_iptv_tiny/pngwing.com (8).png" alt="Logo (8)"></div>
+        <div class="slide"><img src="img_iptv_tiny/prime_video.png" alt="Prime Video"></div>
+        <div class="slide"><img src="img_iptv_tiny/800px-Rede-Telecine.png" alt="Telecine"></div>
+        <div class="slide"><img src="img_iptv_tiny/1600px-UFC_Logo.svg.png" alt="UFC Logo2"></div>
+        <div class="slide"><img src="img_iptv_tiny/apple-tv-logo-0.png" alt="Apple TV Logo"></div>
+        <div class="slide"><img src="img_iptv_tiny/Disney+_logo.svg.png" alt="Disney+"></div>
+        <div class="slide"><img src="img_iptv_tiny/espn_logo.png" alt="ESPN"></div>
+        <div class="slide"><img src="img_iptv_tiny/GloboNews_logo.svg.png" alt="GloboNews"></div>
+        <div class="slide"><img src="img_iptv_tiny/globoplay-logo-BA545AE124-seeklogo.com.png" alt="Globoplay"></div>
+        <div class="slide"><img src="img_iptv_tiny/hulu-logo-svgrepo-com.svg" alt="Hulu"></div>
+        <div class="slide"><img src="img_iptv_tiny/logo-cnn-png_optimized.webp" alt="CNN"></div>
+        <div class="slide"><img src="img_iptv_tiny/Logo-Sportv-Png-1024x1024.webp" alt="SporTV"></div>
+        <div class="slide"><img src="img_iptv_tiny/paramount-plus-logo-1.png" alt="Paramount+"></div>
+        <div class="slide"><img src="img_iptv_tiny/png-transparent-fox-sports-1-television-channel-fox-sports-north-television-text-trademark.png" alt="Fox Sports"></div>
+        <div class="slide"><img src="img_iptv_tiny/png-transparent-hbo-max-logo.png" alt="HBO Max"></div>
       </div>
     </div>
   </section>
@@ -828,21 +824,17 @@
 
   <!-- PROMOÇÕES / NOSSOS PLANOS -->
   <section class="promocoes" id="promocoes">
-    <!-- Cabeçalho para desktop -->
     <div class="columns-header">
       <h2 class="column-title">Promoções de streaming mensal</h2>
       <h2 class="column-title">Planos de IPTV</h2>
     </div>
-    <!-- Para mobile, os cabeçalhos serão integrados em cada coluna -->
     <div class="promocoes-container">
-      <!-- Coluna da imagem -->
       <div class="promo-column">
         <h2 class="mobile-header">Promoções de streaming mensal</h2>
         <div class="promo-image">
-          <img src="img_iptv/tabela_promocoes_iptv_multidigital.jpg" alt="Tabela de Promoções">
+          <img src="img_iptv_tiny/tabela_promocoes_iptv_multidigital.jpg" alt="Tabela de Promoções">
         </div>
       </div>
-      <!-- Coluna dos pacotes -->
       <div class="plans-column" id="nossos-planos">
         <h2 class="mobile-header">Planos de IPTV</h2>
         <div class="promo-plans">
@@ -868,23 +860,23 @@
 
   <!-- RODAPÉ -->
   <footer>
-    <img class="footer-logo" src="img_iptv/iptv_multidigital_logo.jpg" alt="Logomarca Rodapé">
+    <img class="footer-logo" src="img_iptv_tiny/iptv_multidigital_logo.jpg" alt="Logomarca Rodapé">
     <p>&copy; 2023 IPTV MultiDigital. Todos os direitos reservados.</p>
     <p>
       <a href="https://wa.me/5573981353836" target="_blank">Entre em contato via WhatsApp</a>
     </p>
   </footer>
 
-  <!-- Scripts: Partículas, Toggle, Depoimentos e Highlight do Menu -->
+  <!-- SCRIPTS -->
   <script>
     // Partículas
     document.addEventListener('DOMContentLoaded', function() {
-      particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/demo/particles.json', () => {
+      particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.min.js', () => {
         console.log('Partículas carregadas!');
       });
     });
 
-    // Toggle de animações (Slider)
+    // Toggle de animações
     document.getElementById('toggleAnimations').addEventListener('change', function() {
       document.body.classList.toggle('no-animations');
     });
@@ -894,7 +886,7 @@
       { text: '"Ótimo serviço para ver futebol e UFC! A imagem é top e sem travar."', author: '- João Souza' },
       { text: '"Amo maratonar novelas e séries. O acervo é enorme e funciona lisinho!"', author: '- Maria Aparecida' },
       { text: '"Pra mim que curto filmes de ação e corridas ao vivo, atende super bem."', author: '- Carlos Santos' },
-      { text: '"Simplesmente amei a variedade de animes e doramas. Vale muito a pena!"', author: '- Ana Beatriz' },
+      { text: '"Simplesmente amei a variedade de animes e doramas. Vale muito a pena!"', author: '- Ana Beatriz' }
     ];
     let currentDepoIndex = 0;
     const depoText = document.getElementById('depoimento-text');
@@ -912,11 +904,11 @@
     const options = { threshold: 0.5 };
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if(entry.isIntersecting) {
+        if (entry.isIntersecting) {
           navLinks.forEach(link => link.classList.remove('active'));
           const id = entry.target.getAttribute('id');
           const activeLink = document.querySelector(`nav ul li a[href="#${id}"]`);
-          if(activeLink) activeLink.classList.add('active');
+          if (activeLink) activeLink.classList.add('active');
         }
       });
     }, options);
